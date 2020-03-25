@@ -6,5 +6,8 @@
 
 module.exports = {
   siteName: 'Corono Info',
-  plugins: []
+  plugins: [{
+    use: 'gridsome-plugin-tailwindcss',
+
+  }]
 }

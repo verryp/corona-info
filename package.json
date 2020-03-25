@@ -9,5 +9,8 @@
   "dependencies": {
     "axios": "^0.19.2",
     "gridsome": "^0.7.0"
+  },
+  "devDependencies": {
+    "gridsome-plugin-tailwindcss": "^2.2.43"
   }
 }

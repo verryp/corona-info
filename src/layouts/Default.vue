@@ -1,5 +1,6 @@
 <template>
-  <div class="layout">
+  <div class="bg-gray-900 h-screen text-white">
+    <div class="container mx-auto px-10">
     <header class="header">
       <strong>
         <g-link to="/">{{ $static.metadata.siteName }}</g-link>
@@ -10,6 +11,7 @@
       </nav>
     </header>
     <slot/>
+  </div>
   </div>
 </template>
 
@@ -27,13 +29,6 @@ body {
   margin:0;
   padding:0;
   line-height: 1.5;
-}
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .header {
