@@ -1,5 +1,5 @@
 {
-  "name": "corona-info",
+  "name": "covid19-info",
   "private": true,
   "scripts": {
     "build": "gridsome build",
