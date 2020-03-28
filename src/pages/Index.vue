@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout class="p-6">
     <div
       class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 mt-10"
       role="alert"
@@ -8,9 +8,11 @@
       <p class="text-sm">Update terkini mengenai wabah virus corona yang ada di Indonesia.</p>
     </div>
 
-    <div class="flex flex-row mt-8 w-full justify-between">
+    <div
+      class="grid grid-flow-col grid-cols-1 grid-rows-6 md:grid-cols-2 md:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 gap-4 mt-6"
+    >
       <!-- ! Total Cases -->
-      <div class="w-full lg:w-1/2 rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
+      <div class="rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
         <div class="flex justify-between">
           <span class="text-2xl font-mono pt-2">Total Kasus</span>
 
@@ -75,12 +77,12 @@
 
         <div>
           <span class="text-6xl">{{ items.cases }}</span>
-          <span class="text-4xl ml-2 mt-5">Kasus</span>
+          <span class="text-4xl ml-6 mt-5">Kasus</span>
         </div>
       </div>
 
       <!-- ! Today Cases -->
-      <div class="w-full lg:w-1/2 rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2 mx-6">
+      <div class="rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
         <div class="flex justify-between">
           <span class="text-2xl font-mono pt-2">Kasus Hari Ini</span>
 
@@ -154,7 +156,7 @@
       </div>
 
       <!-- ! Active Cases -->
-      <div class="w-full lg:w-1/2 rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
+      <div class="rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
         <div class="flex justify-between">
           <span class="text-2xl font-mono pt-2">Kasus Aktif</span>
 
@@ -229,12 +231,10 @@
           <span class="text-4xl ml-6 mt-8">Kasus</span>
         </div>
       </div>
-    </div>
 
-    <!-- ! PART 2 -->
-    <div class="flex flex-row mt-8 w-full justify-between">
+      <!-- ! PART 2 -->
       <!-- ! Total Death -->
-      <div class="w-full lg:w-1/2 rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
+      <div class="rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
         <div class="flex justify-between">
           <span class="text-2xl font-mono pt-2">Total Meninggal</span>
 
@@ -292,12 +292,12 @@
 
         <div>
           <span class="text-6xl">{{ items.deaths }}</span>
-          <span class="text-4xl ml-2 mt-5">Orang</span>
+          <span class="text-4xl ml-6 mt-5">Orang</span>
         </div>
       </div>
 
       <!-- ! Today Deaths -->
-      <div class="w-full lg:w-1/2 rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2 mx-6">
+      <div class="rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
         <div class="flex justify-between">
           <span class="text-2xl font-mono pt-2">Meninggal Hari Ini</span>
 
@@ -355,7 +355,7 @@
       </div>
 
       <!-- ! Total Recovered -->
-      <div class="w-full lg:w-1/2 rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
+      <div class="rounded-lg shadow-lg bg-blue-900 px-6 py-4 mt-2">
         <div class="flex justify-between">
           <span class="text-2xl font-mono pt-2">Total Sembuh</span>
 
@@ -420,7 +420,14 @@ export default {
 
   async mounted() {
     try {
-      const result = await axios.get(`https://appku19.herokuapp.com/indonesia`);
+      const result = await axios.get(
+        "https://appku19.herokuapp.com/indonesia",
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*"
+          }
+        }
+      );
 
       this.items = result.data.result[0];
     } catch (error) {
